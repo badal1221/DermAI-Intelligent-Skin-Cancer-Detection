@@ -1,0 +1,10 @@
+pandas
+numpy
+seaborn
+Flask
+Pillow
+requests
+Werkzeug
+gunicorn
+
+-e .

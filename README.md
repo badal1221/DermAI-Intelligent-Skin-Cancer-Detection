@@ -1,1 +1,1 @@
-##DermAI: Intelligent Skin Cancer Detection
+## DermAI: Intelligent Skin Cancer Detection
