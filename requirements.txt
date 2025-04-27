@@ -6,5 +6,9 @@ Pillow
 requests
 Werkzeug
 gunicorn
+imbalanced-learn
+tensorflow
+tqdm
+opencv-python
 
 -e .
