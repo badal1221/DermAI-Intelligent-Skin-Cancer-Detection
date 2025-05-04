@@ -35,27 +35,27 @@ DermAI is an end-to-end deep learning framework for automated classification of 
 
 ## Project Structure
 
-project-root/
+project-root/                                                                                                                                                                                                       
 │
-├── data/ # Raw and preprocessed datasets
-│ ├── HAM10000/ # HAM10000 image files
-│ └── ISIC/ # ISIC image files
-│
-├── src/ # Core ML pipeline
-│ ├── components/ # Data ingestion, preprocessing, model training modules
-│ ├── pipeline/ # Orchestrators for training and inference
-│ ├── utils.py # Utility functions
-│ ├── exception.py # Custom exception handling
-│ └── logger.py # Logging setup
-│
-├── webapp/ # Flask application
-│ ├── static/ # CSS, JS, images
-│ ├── templates/ # HTML templates
-│ └── app.py # Flask server entrypoint
-│
-├── notebooks/ # Jupyter notebooks for EDA and experiments
-├── outputs/ # Saved models and evaluation artifacts
-├── requirements.txt # Python dependencies
+├── data/ # Raw and preprocessed datasets                                                                                                                                                                           
+│ ├── HAM10000/ # HAM10000 image files                                                                                                                                                                              
+│ └── ISIC/ # ISIC image files                                                                                                                                                                                      
+│                                                                                                                                                                                                                   
+├── src/ # Core ML pipeline                                                                                                                                                                                         
+│ ├── components/ # Data ingestion, preprocessing, model training modules                                                                                                                                           
+│ ├── pipeline/ # Orchestrators for training and inference                                                                                                                                                          
+│ ├── utils.py # Utility functions                                                                                                                                                                                  
+│ ├── exception.py # Custom exception handling                                                                                                                                                                      
+│ └── logger.py # Logging setup                                                                                                                                                                                     
+│                                                                                                                                                                                                                   
+├── webapp/ # Flask application                                                                                                                                                                                    
+│ ├── static/ # CSS, JS, images                                                                                                                                                                                     
+│ ├── templates/ # HTML templates                                                                                                                                                                                   
+│ └── app.py # Flask server entrypoint                                                                                                                                                                              
+│                                                                                                                                                                                                                   
+├── notebooks/ # Jupyter notebooks for EDA and experiments                                                                                                                                                          
+├── outputs/ # Saved models and evaluation artifacts                                                                                                                                                                
+├── requirements.txt # Python dependencies                                                                                                                                                                          
 └── README.md # Project overview and instructions
 
 
@@ -130,8 +130,75 @@ The Flask-based web interface allows users to:
 - Other dependencies in `requirements.txt`
 
 ```bash
-pip install -r requirements.txt
+ pip install -r requirements.txt
+```
+
+### Installation
+1. Clone the repository:
+  ```bash
+   git clone https://github.com/<username>/DermAI.git
+   cd DermAI
+  ```
+2. Download and place image datasets under data/HAM10000/ and data/ISIC/.
+3. Train models or download pre-trained weights in outputs/models/.
 
 
+### Usage
+#### Training
+```bash
+python src/pipeline/train_pipeline.py --config=config/train_config.yaml
+```
+#### Inference (CLI)
+```bash
+python src/pipeline/predict_pipeline.py --image path/to/image.jpg
+```
+#### Run Web App
+```bash
+export FLASK_APP=webapp/app.py
+flask run
+```
 
 
+## Contributing
+
+1. Contributions are welcome! Please follow these steps:
+
+2. Fork the repository.
+
+3. Create a feature branch: git checkout -b feature-name.
+
+4. Commit your changes: git commit -m 'Add some feature'.
+
+5. Push to the branch: git push origin feature-name.
+
+6. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Prof. Sabyasachi Patra, IIIT Bhubaneswar for guidance and support.
+
+- ISIC & HAM10000 teams for providing datasets.
+
+- TensorFlow and Flask communities for their open-source tools.
+
+## References
+
+1. Esteva et al., "Dermatologist-level classification of skin cancer with deep neural networks", Nature, 2017.
+
+2. Tan & Le, "EfficientNet: Rethinking model scaling for CNNs", ICML, 2019.
+
+3. Huang et al., "Densely Connected Convolutional Networks", CVPR, 2017.
+
+4. Sandler et al., "MobileNetV2: Inverted Residuals and Linear Bottlenecks", CVPR, 2018.
+
+5. Tschandl et al., "The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions", Sci Data, 2018.
+
+6. Codella et al., "Skin Lesion Analysis Toward Melanoma Detection: A Challenge at the 2017 International Symposium on Biomedical Imaging", ISBI, 2018.
+
+7. Chollet, "Xception: Deep Learning with Depthwise Separable Convolutions", CVPR, 2017.
+
+8. Simonyan & Zisserman, "Very Deep Convolutional Networks for Large-Scale Image Recognition", arXiv preprint arXiv:1409.1556, 2014.
