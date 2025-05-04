@@ -1,8 +1,8 @@
 pandas
 numpy
 seaborn
-Flask
-Pillow
+flask
+pillow
 requests
 Werkzeug
 gunicorn
@@ -10,5 +10,9 @@ imbalanced-learn
 tensorflow
 tqdm
 opencv-python
+flask-cors
+gdown
+
+
 
 -e .
