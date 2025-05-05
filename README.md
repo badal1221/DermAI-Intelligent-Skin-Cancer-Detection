@@ -154,8 +154,7 @@ python src/pipeline/predict_pipeline.py --image path/to/image.jpg
 ```
 #### Run Web App
 ```bash
-export FLASK_APP=webapp/app.py
-flask run
+python webapp/app.py
 ```
 
 

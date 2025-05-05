@@ -109,7 +109,7 @@ def main():
     model, history = train_model(X_train, y_train, X_val, y_val, input_shape, num_classes)
 
     # Save the trained model
-    model.save('trained_model.h5')
+    model.save('trained_model.keras')
     print("Model training complete and saved as 'trained_model.h5'.")
 
 if __name__ == "__main__":

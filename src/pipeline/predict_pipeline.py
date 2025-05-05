@@ -35,8 +35,8 @@ def predict(model, image_array: np.ndarray, label_mapping: dict):
     return predicted_label
 
 def main():
-    model_path = 'artifacts/DenseNet121/final_densenet_model.h5'  # or wherever your model is saved
-    image_path = 'path_to_image.jpg'  # TODO: replace with actual image path
+    model_path = 'artifacts/DenseNet121/final_densenet_model.keras'  # or wherever your model is saved
+    image_path = 'path_to_image.jpg'  # Replace with the path to your image
     
     label_mapping = {
         'akiec': 0, 'bcc': 1, 'bkl': 2, 'df': 3,
