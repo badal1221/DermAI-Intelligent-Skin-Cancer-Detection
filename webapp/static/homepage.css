@@ -30,10 +30,10 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: -1; /* Bring it to the front */
-  height: auto; /* Ensure it scales properly */
-  opacity: 1; /* Make it fully visible */
-  transform: scale(1.7); /* Keep it at normal size */
+  z-index: -1; 
+  height: auto;
+  opacity: 1; 
+  transform: scale(1.7); 
 }
 
 /*  BANNER*/
@@ -117,7 +117,6 @@ body {
   background: #000;
   position: relative;
   opacity: 0;
-  /* transition: opacity 0.5s ease-in-out; */
   position: absolute;
   left: 12%;
   bottom: 17%;
@@ -143,7 +142,6 @@ body {
   border-radius: 20px;
   cursor: pointer;
   margin-top: 10px;
-  /* transition: transform 0.6s ease-in-out; */
   opacity: 0;
   font-size: large;
   width: 200px;

@@ -96,11 +96,6 @@ suggestions_map = {
 
 
 
-
-
-
-
-
 def preprocess_image(img):
 
     print(img)
@@ -166,11 +161,8 @@ def predict():
     image_pil = Image.open(io.BytesIO(file.read())).convert("RGB")  # Ensure RGB conversion
     image_np = np.array(image_pil)
 
-    if detect_skin(image_np) and cf == 'camera_capture.jpg':
-        response = jsonify({"prediction": "Seems like a non-infected skin image 😁"})
 
-
-    elif detect_skin(image_np):
+    if detect_skin(image_np): # If skin is detected in the image then proceed for prediction
         print('Skin detected, processing...')
         processed_image = preprocess_image(image_pil)  # Preprocess
         processed_image = cv2.cvtColor(processed_image, cv2.COLOR_RGB2BGR)
