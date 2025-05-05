@@ -136,8 +136,7 @@ The Flask-based web interface allows users to:
 ### Installation
 1. Clone the repository:
   ```bash
-   git clone https://github.com/<username>/DermAI.git
-   cd DermAI
+   git@github.com:badal1221/DermAI-Intelligent-Skin-Cancer-Detection.git
   ```
 2. Download and place image datasets under data/HAM10000/ and data/ISIC/.
 3. Train models or download pre-trained weights in outputs/models/.

@@ -16,7 +16,6 @@ body {
   position: relative;
 }
 
-/*  LOGO */
 .tag {
   font-weight: bolder;
   font-size: 30px;
@@ -31,11 +30,10 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: -1;
-  top: -30px;
-  left: 60px;
-  height: 100%;
-  
+  z-index: -1; /* Bring it to the front */
+  height: auto; /* Ensure it scales properly */
+  opacity: 1; /* Make it fully visible */
+  transform: scale(1.7); /* Keep it at normal size */
 }
 
 /*  BANNER*/

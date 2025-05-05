@@ -173,6 +173,7 @@ def predict():
     elif detect_skin(image_np):
         print('Skin detected, processing...')
         processed_image = preprocess_image(image_pil)  # Preprocess
+        processed_image = cv2.cvtColor(processed_image, cv2.COLOR_RGB2BGR)
         processed_image = np.expand_dims(processed_image, axis=0)
         prediction = model.predict(processed_image)  # Get prediction
         print(prediction)
