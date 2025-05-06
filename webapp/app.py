@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Model setup
-MODEL_PATH = "C:/Users/DURBADALA/project/ml/DermAI-Intelligent-Skin-Cancer-Detection/webapp/best_model_2.keras"
+MODEL_PATH = "webapp/best_model_2.keras"
 # DRIVE_FILE_ID = "14i3LvHBOZJGNceQ-FJ7V-QK_aQiATO2q"  # 👈 Replace this with your file ID
 
 # def download_model():
@@ -127,7 +127,6 @@ def preprocess_image(img):
     return new_im
 
 def detect_skin(image_np):
-    print('here')
     """Detects if skin is present in the image using OpenCV."""
     image_hsv = cv2.cvtColor(image_np, cv2.COLOR_RGB2HSV)  # Convert to HSV
 
@@ -161,7 +160,6 @@ def predict():
     image_pil = Image.open(io.BytesIO(file.read())).convert("RGB")  # Ensure RGB conversion
     image_np = np.array(image_pil)
 
-
     if detect_skin(image_np): # If skin is detected in the image then proceed for prediction
         print('Skin detected, processing...')
         processed_image = preprocess_image(image_pil)  # Preprocess
@@ -169,10 +167,15 @@ def predict():
         processed_image = np.expand_dims(processed_image, axis=0)
         prediction = model.predict(processed_image)  # Get prediction
         print(prediction)
-        predicted_class = class_labels[np.argmax(prediction)]  # Get highest probability class
-        predicted_class = int(predicted_class)
-        suggestions = suggestions_map[predicted_class]
-        response = jsonify({"prediction": [classes[predicted_class],  suggestions ] })
+        print(f"confidence: {max(prediction[0]) * 100:.2f}%")
+        if(max(prediction[0]>=0.8)): # if confidence is more than 80% then proceed for prediction else return a message
+            predicted_class = class_labels[np.argmax(prediction)]  # Get highest probability class
+            predicted_class = int(predicted_class)
+            suggestions = suggestions_map[predicted_class]
+            response = jsonify({"prediction": [classes[predicted_class],  suggestions ] })
+        else:
+            print('Low confidence in prediction.')
+            response = jsonify({"prediction": "Seems like a non-infected skin image"})  
 
     else:
         print('No skin detected.')
